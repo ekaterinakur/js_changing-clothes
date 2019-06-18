@@ -1,0 +1,48 @@
+.changing-clothes {
+    width: 350px;
+    margin: 50px auto 0;
+    background: rgb(192, 46, 192);
+    color: #fff;
+}
+
+li {
+    padding: 10px 20px;
+    list-style: none;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li:hover {
+    box-shadow: -1px 0px 18px 0px rgba(115,31,115,1);
+    transition: all .3s;
+}
+
+li:last-child {
+    margin: 0;
+}
+
+button {
+    margin: 0 20px;
+    padding: 10px;
+    border-radius: 50%;
+    background: rgb(83, 12, 83);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: transform .1s;
+}
+
+button:hover {
+    transform: scale(1.2);
+}
+
+input {
+    outline: none;
+    height: 20px;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: 1px solid rgb(83, 12, 83);
+    color: rgb(83, 12, 83);
+}
