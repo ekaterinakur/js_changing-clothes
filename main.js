@@ -3,16 +3,16 @@
 const container = document.querySelector('.changing-clothes');
 
 let initialState = {
-    items: ['Apron', 'Belt', 'Cardigan', 'Dress', 'Earrings', 'Fur coat', 'Gloves', 'Hat'],
-		index: null,
-		inputText: null
+  items: ['Apron', 'Belt', 'Cardigan', 'Dress', 'Earrings', 'Fur coat', 'Gloves', 'Hat'],
+	index: null,
+	inputText: null
 };
 
 const clickEdit = inputText => {
-	return {
-		type: 'click_edit',
-	  inputText
-	}
+  return {
+	type: 'click_edit',
+	inputText
+  }
 };
 
 const clickEnter = inputText => {
@@ -46,11 +46,11 @@ function getNextState(state = initialState, action) {
 			return {
 				...state,
 				items: state.items.map(item => {
-					if (state.items.indexOf(item) === state.index) {
-						return action.inputText;
-					}
-					return item;
+					return state.items.indexOf(item) === state.index
+						? action.inputText
+					  : item;
 				}),
+				index: null,
 				inputText: ''
 			};
 		case 'remove_item':
@@ -106,6 +106,7 @@ function render() {
 			  if (event.key !== 'Enter') {
 				  return;
 				};
+				
 				if (event.target.value.trim() === '') {
 					store.dispatch(removeItem());
 				}
@@ -122,4 +123,4 @@ store.subscribe(() => {
 	render();
 });
 
-render();
+document.addEventListener('load', render());
